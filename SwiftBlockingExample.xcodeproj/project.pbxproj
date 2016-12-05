@@ -12,6 +12,7 @@
 		AA0F10F21DF60B2B007BE237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0F10F01DF60B2B007BE237 /* Main.storyboard */; };
 		AA0F10F41DF60B2B007BE237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0F10F31DF60B2B007BE237 /* Assets.xcassets */; };
 		AA0F10F71DF60B2B007BE237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0F10F51DF60B2B007BE237 /* LaunchScreen.storyboard */; };
+		AA0F10FF1DF60C41007BE237 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0F10FE1DF60C41007BE237 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AA0F10F31DF60B2B007BE237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA0F10F61DF60B2B007BE237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA0F10F81DF60B2B007BE237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0F10FE1DF60C41007BE237 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +58,21 @@
 			children = (
 				AA0F10EC1DF60B2B007BE237 /* AppDelegate.swift */,
 				AA0F10EE1DF60B2B007BE237 /* ViewController.swift */,
+				AA0F10FE1DF60C41007BE237 /* DetailViewController.swift */,
 				AA0F10F01DF60B2B007BE237 /* Main.storyboard */,
+				AA0F11001DF60C6D007BE237 /* Supplementary Files */,
+			);
+			path = SwiftBlockingExample;
+			sourceTree = "<group>";
+		};
+		AA0F11001DF60C6D007BE237 /* Supplementary Files */ = {
+			isa = PBXGroup;
+			children = (
 				AA0F10F31DF60B2B007BE237 /* Assets.xcassets */,
 				AA0F10F51DF60B2B007BE237 /* LaunchScreen.storyboard */,
 				AA0F10F81DF60B2B007BE237 /* Info.plist */,
 			);
-			path = SwiftBlockingExample;
+			name = "Supplementary Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0F10FF1DF60C41007BE237 /* DetailViewController.swift in Sources */,
 				AA0F10EF1DF60B2B007BE237 /* ViewController.swift in Sources */,
 				AA0F10ED1DF60B2B007BE237 /* AppDelegate.swift in Sources */,
 			);
