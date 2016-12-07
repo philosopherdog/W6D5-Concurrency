@@ -14,7 +14,18 @@
 		AA0F10F71DF60B2B007BE237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0F10F51DF60B2B007BE237 /* LaunchScreen.storyboard */; };
 		AA0F10FF1DF60C41007BE237 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0F10FE1DF60C41007BE237 /* DetailViewController.swift */; };
 		AA0F11021DF744F3007BE237 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0F11011DF744F3007BE237 /* Utility.swift */; };
+		AA0F110C1DF7A041007BE237 /* SwiftBlockingExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0F110B1DF7A041007BE237 /* SwiftBlockingExampleTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA0F110E1DF7A041007BE237 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA0F10E11DF60B2B007BE237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0F10E81DF60B2B007BE237;
+			remoteInfo = SwiftBlockingExample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AA0F10E91DF60B2B007BE237 /* SwiftBlockingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBlockingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +37,20 @@
 		AA0F10F81DF60B2B007BE237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA0F10FE1DF60C41007BE237 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AA0F11011DF744F3007BE237 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		AA0F11091DF7A041007BE237 /* SwiftBlockingExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBlockingExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0F110B1DF7A041007BE237 /* SwiftBlockingExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBlockingExampleTests.swift; sourceTree = "<group>"; };
+		AA0F110D1DF7A041007BE237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AA0F10E61DF60B2B007BE237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0F11061DF7A041007BE237 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0F10EB1DF60B2B007BE237 /* SwiftBlockingExample */,
+				AA0F110A1DF7A041007BE237 /* SwiftBlockingExampleTests */,
 				AA0F10EA1DF60B2B007BE237 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0F10E91DF60B2B007BE237 /* SwiftBlockingExample.app */,
+				AA0F11091DF7A041007BE237 /* SwiftBlockingExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +101,15 @@
 			name = "Supplementary Files";
 			sourceTree = "<group>";
 		};
+		AA0F110A1DF7A041007BE237 /* SwiftBlockingExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA0F110B1DF7A041007BE237 /* SwiftBlockingExampleTests.swift */,
+				AA0F110D1DF7A041007BE237 /* Info.plist */,
+			);
+			path = SwiftBlockingExampleTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,6 +130,24 @@
 			productReference = AA0F10E91DF60B2B007BE237 /* SwiftBlockingExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AA0F11081DF7A041007BE237 /* SwiftBlockingExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0F11101DF7A041007BE237 /* Build configuration list for PBXNativeTarget "SwiftBlockingExampleTests" */;
+			buildPhases = (
+				AA0F11051DF7A041007BE237 /* Sources */,
+				AA0F11061DF7A041007BE237 /* Frameworks */,
+				AA0F11071DF7A041007BE237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA0F110F1DF7A041007BE237 /* PBXTargetDependency */,
+			);
+			name = SwiftBlockingExampleTests;
+			productName = SwiftBlockingExampleTests;
+			productReference = AA0F11091DF7A041007BE237 /* SwiftBlockingExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -112,6 +162,12 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 6D3DA9G4XW;
 						ProvisioningStyle = Automatic;
+					};
+					AA0F11081DF7A041007BE237 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 6D3DA9G4XW;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AA0F10E81DF60B2B007BE237;
 					};
 				};
 			};
@@ -129,6 +185,7 @@
 			projectRoot = "";
 			targets = (
 				AA0F10E81DF60B2B007BE237 /* SwiftBlockingExample */,
+				AA0F11081DF7A041007BE237 /* SwiftBlockingExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +198,13 @@
 				AA0F10F71DF60B2B007BE237 /* LaunchScreen.storyboard in Resources */,
 				AA0F10F41DF60B2B007BE237 /* Assets.xcassets in Resources */,
 				AA0F10F21DF60B2B007BE237 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0F11071DF7A041007BE237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +222,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA0F11051DF7A041007BE237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0F110C1DF7A041007BE237 /* SwiftBlockingExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA0F110F1DF7A041007BE237 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0F10E81DF60B2B007BE237 /* SwiftBlockingExample */;
+			targetProxy = AA0F110E1DF7A041007BE237 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AA0F10F01DF60B2B007BE237 /* Main.storyboard */ = {
@@ -299,6 +379,34 @@
 			};
 			name = Release;
 		};
+		AA0F11111DF7A041007BE237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6D3DA9G4XW;
+				INFOPLIST_FILE = SwiftBlockingExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cocoanutmobile.SwiftBlockingExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftBlockingExample.app/SwiftBlockingExample";
+			};
+			name = Debug;
+		};
+		AA0F11121DF7A041007BE237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6D3DA9G4XW;
+				INFOPLIST_FILE = SwiftBlockingExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cocoanutmobile.SwiftBlockingExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftBlockingExample.app/SwiftBlockingExample";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -316,6 +424,14 @@
 			buildConfigurations = (
 				AA0F10FC1DF60B2B007BE237 /* Debug */,
 				AA0F10FD1DF60B2B007BE237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA0F11101DF7A041007BE237 /* Build configuration list for PBXNativeTarget "SwiftBlockingExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0F11111DF7A041007BE237 /* Debug */,
+				AA0F11121DF7A041007BE237 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
