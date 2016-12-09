@@ -18,7 +18,7 @@ class Timer {
   }
   static func stop() {
     guard let startTime = startTime else {
-      print(#line, "Must create startTime first")
+      print(#line, "Must run start first")
       return
     }
     let stopTime = Date()
@@ -146,7 +146,7 @@ let privateConcurrentQ = DispatchQueue(label: "com.steve.t", attributes: .concur
 //  print(#line, "All items complete")
 //}
 
-// (NS)Operations
+// (NS)Operations Objc K
 
 
 
