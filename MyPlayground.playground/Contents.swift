@@ -94,22 +94,6 @@ let privateConcurrentQ = DispatchQueue(label: "com.steve.t", attributes: .concur
 //  }
 //}
 
-// Playgrounds do not run on the mainQ
-
-//mainQ.async {
-//  let a = 6
-//  print("#line, main Q: a = \(a)")
-//}
-//
-//privateConcurrentQ.async {
-//  let a = 6
-//  print("#line, private Q: a = \(a)")
-//}
-//
-//defaultQ.async {
-//  let a = 42
-//  print("#line, default Q: a = \(a)")
-//}
 
 // most common pattern
 
@@ -146,7 +130,45 @@ let privateConcurrentQ = DispatchQueue(label: "com.steve.t", attributes: .concur
 //  print(#line, "All items complete")
 //}
 
-// (NS)Operations Objc K
+
+// Using OperationQueue
+
+//let operationQ = OperationQueue()
+//let op1 = BlockOperation { 
+//  sleep(1)
+//  print(#line, "block after sleep")
+//}
+//
+//let op2 = BlockOperation(block: {
+//  print(#line, "block without sleep")
+//})
+//
+//operationQ.addOperations([op1, op2], waitUntilFinished: true)
+//
+//print(#line, "wait until finish affects this line")
+
+
+// Creating a dependency such that op1 finishes execution before op2 proceeds
+
+//let operationQ = OperationQueue()
+//let op1 = BlockOperation {
+//  print(#line, "block before sleep")
+//  sleep(1)
+//  print(#line, "block after sleep")
+//}
+//
+//let op2 = BlockOperation(block: {
+//  print(#line, "block without sleep")
+//})
+//
+//op2.addDependency(op1)
+//
+//operationQ.addOperations([op1, op2], waitUntilFinished: false)
+//
+//print(#line, "waitUntilFinished affects this line")
+
+
+
 
 
 
