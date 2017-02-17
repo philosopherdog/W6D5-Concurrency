@@ -30,28 +30,28 @@ class DetailViewController: UIViewController {
     super.viewDidAppear(animated)
     activityIndicator.startAnimating()
     
-    //    fetchImageOnMainQueue { (data:Data) in
-    //      guard let image = UIImage(data: data) else {
-    //        print(#line, "couldn't make an image from it")
-    //        return
-    //      }
-    //      self.imageView.image = image
-    //      activityIndicator.stopAnimating()
-    //      Timer.stop()
-    //    }
-    
-    fetchImageOnBackGroundQueue { data in
-      // we're in a background Q here
+    fetchImageOnMainQueue {[unowned self] (data:Data) in
       guard let image = UIImage(data: data) else {
-        print(#line, "Where's my image?")
+        print(#line, "couldn't make an image from it")
         return
       }
-      DispatchQueue.main.async {
-        self.imageView.image = image
-        Timer.stop()
-        self.activityIndicator.stopAnimating()
-      }
+      self.imageView.image = image
+      self.activityIndicator.stopAnimating()
+      Timer.stop()
     }
+    
+    //    fetchImageOnBackGroundQueue {[unowned self] data in
+    //      // we're in a background Q here
+    //      guard let image = UIImage(data: data) else {
+    //        print(#line, "Where's my image?")
+    //        return
+    //      }
+    //      DispatchQueue.main.async {
+    //        self.imageView.image = image
+    //        Timer.stop()
+    //        self.activityIndicator.stopAnimating()
+    //      }
+    //    }
   }
 }
 
@@ -75,6 +75,7 @@ extension DetailViewController {
 extension DetailViewController {
   fileprivate func fetchImageOnBackGroundQueue(completionHandler:@escaping (Data)->()) {
     Timer.start()
+    // What type of Q is this?
     let backgroundQ = DispatchQueue(label: "com.cocoanutmobile.SwiftBlocking", qos: .userInitiated)
     backgroundQ.async {
       [unowned self] in
