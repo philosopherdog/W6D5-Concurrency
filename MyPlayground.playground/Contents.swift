@@ -131,7 +131,7 @@ let privateConcurrentQ = DispatchQueue(label: "com.steve.t", attributes: .concur
 //}
 
 
-// Using OperationQueue
+// Using (NS)OperationQueue
 
 //let operationQ = OperationQueue()
 //let op1 = BlockOperation { 
