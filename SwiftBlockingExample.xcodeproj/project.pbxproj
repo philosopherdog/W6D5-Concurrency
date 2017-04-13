@@ -16,7 +16,6 @@
 		AA0F11021DF744F3007BE237 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0F11011DF744F3007BE237 /* Utility.swift */; };
 		AA0F110C1DF7A041007BE237 /* SwiftBlockingExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0F110B1DF7A041007BE237 /* SwiftBlockingExampleTests.swift */; };
 		AA0F11151DF7A19D007BE237 /* ConcurrencyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0F11141DF7A19D007BE237 /* ConcurrencyTests.m */; };
-		AA3851671DFA4E0000EF06BA /* Concurrency Swift & Objective-C.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AA3851661DFA4E0000EF06BA /* Concurrency Swift & Objective-C.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +44,6 @@
 		AA0F11131DF7A19D007BE237 /* SwiftBlockingExampleTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftBlockingExampleTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA0F11141DF7A19D007BE237 /* ConcurrencyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcurrencyTests.m; sourceTree = "<group>"; };
 		AA3851621DFA336A00EF06BA /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		AA3851661DFA4E0000EF06BA /* Concurrency Swift & Objective-C.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Concurrency Swift & Objective-C.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 		AA0F10E01DF60B2B007BE237 = {
 			isa = PBXGroup;
 			children = (
-				AA3851661DFA4E0000EF06BA /* Concurrency Swift & Objective-C.pdf */,
 				AA3851621DFA336A00EF06BA /* MyPlayground.playground */,
 				AA0F10EB1DF60B2B007BE237 /* SwiftBlockingExample */,
 				AA0F110A1DF7A041007BE237 /* SwiftBlockingExampleTests */,
@@ -214,7 +211,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA3851671DFA4E0000EF06BA /* Concurrency Swift & Objective-C.pdf in Resources */,
 				AA0F10F71DF60B2B007BE237 /* LaunchScreen.storyboard in Resources */,
 				AA0F10F41DF60B2B007BE237 /* Assets.xcassets in Resources */,
 				AA0F10F21DF60B2B007BE237 /* Main.storyboard in Resources */,
