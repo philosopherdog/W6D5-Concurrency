@@ -10,27 +10,7 @@ public func duration(_ block: () -> ()) -> TimeInterval {
   return Date().timeIntervalSince(startTime)
 }
 
-class Timer {
-  private static var startTime:Date?
-  static func start() {
-    startTime = Date()
-    print(#line, "start: \(startTime!)")
-  }
-  static func stop() {
-    guard let startTime = startTime else {
-      print(#line, "Must run start first")
-      return
-    }
-    let stopTime = Date()
-    let duration = Date().timeIntervalSince(startTime)
-    print(#line, "stop: \(stopTime)")
-    print(#line, "duration: \(duration)")
-    self.startTime = nil
-  }
-}
-
-
-// Initializing Q's 
+// Initializing Q's
 
 // .userInitiated global dispatch queue
 let userInitiatedQ = DispatchQueue.global(qos: .userInitiated)
@@ -70,7 +50,8 @@ func task2() {
 //  }
 //}
 
-// User Created or Private Serial Q's
+// User Created or Private Serial Q's (Remember the default initializer creates a serial Q)
+
 //let privateBgQ = DispatchQueue(label: "com.steve.t")
 //
 //duration {
@@ -96,6 +77,25 @@ let privateConcurrentQ = DispatchQueue(label: "com.steve.t", attributes: .concur
 
 
 // most common pattern
+
+class Timer {
+  private static var startTime: Date?
+  static func start() {
+    startTime = Date()
+    print(#line, "start: \(startTime!)")
+  }
+  static func stop() {
+    guard let startTime = startTime else {
+      print(#line, "Must run start first")
+      return
+    }
+    let stopTime = Date()
+    let duration = Date().timeIntervalSince(startTime)
+    print(#line, "stop: \(stopTime)")
+    print(#line, "duration: \(duration)")
+    self.startTime = nil
+  }
+}
 
 //DispatchQueue.global().async {
 //  Timer.start()
@@ -134,18 +134,19 @@ let privateConcurrentQ = DispatchQueue(label: "com.steve.t", attributes: .concur
 // Using (NS)OperationQueue
 
 //let operationQ = OperationQueue()
-//let op1 = BlockOperation { 
+//
+//let op1 = BlockOperation {
 //  sleep(1)
-//  print(#line, "block after sleep")
+//  print(#line, "block after sleep goes last")
 //}
 //
 //let op2 = BlockOperation(block: {
-//  print(#line, "block without sleep")
+//  print(#line, "block without sleep gets executed first")
 //})
 //
 //operationQ.addOperations([op1, op2], waitUntilFinished: true)
 //
-//print(#line, "wait until finish affects this line")
+//print(#line, "waitUntilFinished blocks until all operations have finished. So it affects this line!")
 
 
 // Creating a dependency such that op1 finishes execution before op2 proceeds
