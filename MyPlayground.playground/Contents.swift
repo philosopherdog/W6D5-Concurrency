@@ -168,32 +168,4 @@ let privateConcurrentQ = DispatchQueue(label: "com.steve.t", attributes: .concur
 //print(#line, "waitUntilFinished affects this line")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //PlaygroundPage.current.finishExecution()

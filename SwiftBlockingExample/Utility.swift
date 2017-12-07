@@ -1,7 +1,7 @@
 import Foundation
 
 class Timer {
-  private static var startTime:Date?
+  private static var startTime: Date?
   static func start() {
     startTime = Date()
     print(#line, "start: \(startTime!)")

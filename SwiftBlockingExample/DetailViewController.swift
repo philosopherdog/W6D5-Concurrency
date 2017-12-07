@@ -9,85 +9,76 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-  
-  @IBOutlet fileprivate weak var imageView: UIImageView!
-  fileprivate let url:URL! = URL(string: "https://dl.dropboxusercontent.com/u/580418/1.jpg")
-  fileprivate var activityIndicator: UIActivityIndicatorView!
-  
-  //MARK: Lifecyle Methods
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    activityIndicator = self.view.viewWithTag(200) as! UIActivityIndicatorView
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
     
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    activityIndicator.startAnimating()
+    @IBOutlet private weak var imageView: UIImageView!
     
-    fetchImageOnMainQueue {[unowned self] (data:Data) in
-      guard let image = UIImage(data: data) else {
-        print(#line, "couldn't make an image from it")
-        return
-      }
-      self.imageView.image = image
-      self.activityIndicator.stopAnimating()
-      Timer.stop()
+    private let url: URL! = URL(string: "https://www.dropbox.com/s/d8fht3uhbim6fgv/1.jpg?raw=1")
+    
+    private var activityIndicator: UIActivityIndicatorView!
+    
+    //MARK: Lifecyle Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        activityIndicator = self.view.viewWithTag(200) as! UIActivityIndicatorView
     }
     
-    //    fetchImageOnBackGroundQueue {[unowned self] data in
-    //      // we're in a background Q here
-    //      guard let image = UIImage(data: data) else {
-    //        print(#line, "Where's my image?")
-    //        return
-    //      }
-    //      DispatchQueue.main.async {
-    //        self.imageView.image = image
-    //        Timer.stop()
-    //        self.activityIndicator.stopAnimating()
-    //      }
-    //    }
-  }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activityIndicator.startAnimating()
+        
+        fetchImageOnMainQueue {[unowned self] (data: Data) in
+            guard let image = UIImage(data: data) else {
+                print(#line, "couldn't make an image from it")
+                return
+            }
+            self.imageView.image = image
+            self.activityIndicator.stopAnimating()
+            Timer.stop()
+        }
+        
+        // Fix by calling fetchImageOnBackGroundQueue
+    }
 }
 
 // Network code on MainQ (Never do this)
+
 extension DetailViewController {
-  fileprivate func fetchImageOnMainQueue(completionHandler:@escaping (Data)->()) {
-    Timer.start()
-    var data: Data!
-    do {
-      data = try Data(contentsOf: url)
+    private func fetchImageOnMainQueue(completionHandler:@escaping (Data)->()) {
+        Timer.start()
+        do {
+            let data = try Data(contentsOf: url)
+            completionHandler(data)
+        }
+        catch {
+            print(#line, "Where is my data?!")
+            return
+        }
     }
-    catch {
-      print(#line, "Where is my data?!")
-      return
-    }
-    completionHandler(data)
-  }
 }
 
 // backgroundQ Way
 extension DetailViewController {
-  fileprivate func fetchImageOnBackGroundQueue(completionHandler:@escaping (Data)->()) {
-    Timer.start()
-    // What type of Q is this?
-    let backgroundQ = DispatchQueue(label: "com.cocoanutmobile.SwiftBlocking", qos: .userInitiated)
-    backgroundQ.async {
-      [unowned self] in
-      var data: Data!
-      do {
-        data = try Data(contentsOf: self.url)
-      }
-      catch {
-        print(#line, "error: \(error.localizedDescription) getting data from url")
-        return
-      }
-      completionHandler(data)
+    private func fetchImageOnBackGroundQueue(completionHandler:@escaping (Data)->()) {
+        Timer.start()
+        // What type of Q is this?
+        let backgroundQ = DispatchQueue(label: "com.cocoanutmobile.SwiftBlocking", qos: .userInitiated)
+        backgroundQ.async {
+            [unowned self] in
+            var data: Data!
+            do {
+                data = try Data(contentsOf: self.url)
+            }
+            catch {
+                print(#line, "error: \(error.localizedDescription) getting data from url")
+                return
+            }
+            completionHandler(data)
+        }
     }
-  }
 }
