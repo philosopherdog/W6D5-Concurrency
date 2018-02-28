@@ -64,7 +64,7 @@ func task2() {
 //}
 
 // Private Concurrent Q
-let privateConcurrentQ = DispatchQueue(label: "com.steve.t", attributes: .concurrent)
+//let privateConcurrentQ = DispatchQueue(label: "com.steve.t", attributes: .concurrent)
 //
 //duration {
 //  privateConcurrentQ.async {
