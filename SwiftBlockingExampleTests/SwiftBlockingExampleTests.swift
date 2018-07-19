@@ -18,7 +18,7 @@ class SwiftBlockingExampleTests: XCTestCase {
   
   func testBackgroundQIsNotTheMainQ() {
     let bgQ = DispatchQueue.global()
-    XCTAssertFalse(bgQ == OperationQueue.main)
+    XCTAssertFalse(bgQ == DispatchQueue.main)
   }
   
   func testBackgroundSerialQSync() {

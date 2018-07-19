@@ -13,7 +13,9 @@ public func duration(_ block: () -> ()) -> TimeInterval {
 // Initializing Q's
 
 // .userInitiated global dispatch queue
-let userInitiatedQ = DispatchQueue.global(qos: .userInitiated)
+let globalQ = DispatchQueue.global(qos: .userInitiated)
+
+let userCreatedBgConcurrentQ = DispatchQueue(label: "user_created_global_q", qos: .userInteractive, attributes: .concurrent)
 
 //.default global dispatch queue
 let defaultQ = DispatchQueue.global()
@@ -33,19 +35,19 @@ func task2() {
   print(#line, "finished")
 }
 
-// without GCD
+// Without GCD
 //duration {
 //  task1()
 //  task2()
 //}
 
-// with GCD
+// With GCD
 
 //duration {
-//  userInitiatedQ.async {
+//  globalQ.async {
 //    task1()
 //  }
-//  userInitiatedQ.async {
+//  globalQ.async {
 //    task2()
 //  }
 //}
@@ -79,11 +81,14 @@ func task2() {
 // most common pattern
 
 class Timer {
+  
   private static var startTime: Date?
+  
   static func start() {
     startTime = Date()
     print(#line, "start: \(startTime!)")
   }
+  
   static func stop() {
     guard let startTime = startTime else {
       print(#line, "Must run start first")
@@ -105,13 +110,14 @@ class Timer {
 //    Timer.stop()
 //  }
 //}
+//print(#line, "should execute before line 109")
 
 // DispatchGroup
 // Can be used to submit multiple different work items and track when they all complete. Handy when progress can’t be made until all of the specified tasks are complete.
 
 //let myGroup = DispatchGroup()
-//
-//userInitiatedQ.async(group: myGroup) {
+
+//globalQ.async(group: myGroup) {
 //  sleep(1)
 //  print(#line, "task 1")
 //}
@@ -121,7 +127,7 @@ class Timer {
 //  print(#line, "task 2")
 //}
 //
-//userInitiatedQ.async(group: myGroup) {
+//globalQ.async(group: myGroup) {
 //  sleep(1)
 //  print(#line, "task 3")
 //}
