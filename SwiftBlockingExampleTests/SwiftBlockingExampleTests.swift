@@ -10,14 +10,6 @@ import XCTest
 
 class SwiftBlockingExampleTests: XCTestCase {
   
-  override func setUp() {
-    super.setUp()
-  }
-  
-  override func tearDown() {
-    super.tearDown()
-  }
-  
   // Using OperationQueue
   func testCurrentQIsTheMainQ() {
     let mainQ = DispatchQueue.main
