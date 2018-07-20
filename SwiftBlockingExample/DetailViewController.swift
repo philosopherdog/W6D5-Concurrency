@@ -23,33 +23,29 @@ class DetailViewController: UIViewController {
     activityIndicator = self.view.viewWithTag(200) as! UIActivityIndicatorView
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-  }
-  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    
     activityIndicator.startAnimating()
     
-//    fetchImageOnMainQueue {[unowned self] (data: Data) in
-//      guard let image = UIImage(data: data) else {
-//        print(#line, "couldn't make an image from it")
-//        return
-//      }
-//      self.imageView.image = image
-//      self.activityIndicator.stopAnimating()
-//      Timer.stop()
-//    }
+    fetchImageOnMainQueue {[unowned self] (data: Data) in
+      guard let image = UIImage(data: data) else {
+        print(#line, "error getting image from data")
+        return
+      }
+      self.imageView.image = image
+      self.activityIndicator.stopAnimating()
+      Timer.stop()
+    }
     
     // Fix by calling fetchImageOnBackGroundQueue
-    fetchImageOnBackGroundQueue {[unowned self] (data) in
-      DispatchQueue.main.async {
-        let image = UIImage(data: data)
-        self.imageView.image = image
-        Timer.stop()
-      }
-    }
+//    fetchImageOnBackGroundQueue {[unowned self] (data) in
+//      DispatchQueue.main.async {
+//        let image = UIImage(data: data)
+//        self.imageView.image = image
+//        Timer.stop()
+//      }
+//    }
   }
 }
 
@@ -73,8 +69,6 @@ extension DetailViewController {
 extension DetailViewController {
   private func fetchImageOnBackGroundQueue(completionHandler:@escaping (Data)->()) {
     Timer.start()
-    
-    
     let q = DispatchQueue(label: "com.steve.thompson", qos: .userInitiated)
     q.async {[unowned self] in
       do {
@@ -82,8 +76,7 @@ extension DetailViewController {
         completionHandler(data)
       }
       catch {
-        print(#line, "Where is my data?!")
-        return
+        print(#line, error.localizedDescription)
       }
     }
   }
